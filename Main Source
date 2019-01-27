@@ -1,8 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
 import os 
-
-# Helper libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -11,9 +9,6 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 import shutil
 print(tf.__version__)
-
-TEST_DIR = r"C:\Test"
-TRAIN_DIR = r"C:\Training"
 
 print("loading training data...")
 from sklearn.datasets import load_breast_cancer
