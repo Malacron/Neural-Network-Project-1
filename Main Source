@@ -75,17 +75,4 @@ with tf.Session() as sess:
         inputs={'inputs': model_input},
         outputs={'outputs': model_output},
         method_name= tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME)
-    builder = tf.saved_model.builder.SavedModelBuilder('./resources/models/BreastCancer')
-    builder.add_meta_graph_and_variables(
-        sess, [tf.saved_model.tag_constants.SERVING],
-        signature_def_map={
-            tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY:
-                signature_definition
-        })
-    # Save the model so it can be served with a TF model server
-    builder.save()
-    # Use model to classify test data
-    classifications_on_test_data = sess.run(y_hat, feed_dict={X: X_test})
-    # Check model accuracy
-    classes = (classifications_on_test_data > .5).astype(int)
-    print('\nAccuracy Score:',metrics.accuracy_
+    
